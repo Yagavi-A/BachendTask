@@ -1,46 +1,50 @@
-function Person(name,age,street,city,state,country,langs){
-    this.name = name
-    this.age = age
-    this.address = {
-        street:street,
-        city:city,
-        state:state,
-        country:country
-    }
-    this.languagesKnown = langs
+function Individual(firstName, lastName, age, residence, languages) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.residence = residence;
+    this.languages = languages;
 }
 
-function printProps(space,obj){
-    if(obj instanceof Array){
-        for(let item of obj){
-            if(typeof item == 'object'){
-                printProps(space+"     ",item)
-            }
-            else console.log(space+"* "+item)
+function displayProps(space, obj) {
+    if (obj instanceof Array) {
+        for (let item of obj) {
+            if (typeof item === 'object') {
+                displayProps(space + "     ", item);
+            } else console.log(space + "* " + item);
+        }
+    } else {
+        for (let prop in obj) {
+            if (typeof obj[prop] === 'object') {
+                console.log(space + prop + ":");
+                displayProps(space + "     ", obj[prop]);
+            } else console.log(space + prop + ": " + obj[prop]);
         }
     }
-    else{
-    for(let prop in obj){
-        if(typeof obj[prop] == 'object'){
-            console.log(space+prop+":")
-            printProps(space+"     ",obj[prop])
+}
+
+var individuals = [];
+for (let i = 1; i <= 3; i++) {
+    var languages = {
+        language1: {
+            proficiency: ['read', 'speak']
+        },
+        language2: {
+            proficiency: ['speak', 'write']
         }
-        else console.log(space+prop+": "+obj[prop])
-    }
+    };
+
+    var residence = {
+        street: `street_${i}`,
+        city: `city_${i}`,
+        state: `state_${i}`,
+        country: `country_${i}`
+    };
+
+    individuals.push(new Individual(`First_${i}`, `Last_${i}`, 20 + i, residence, languages));
 }
-}
-var people = []
-for(let i=1;i<=5;i++){
-    var lang1 = {}
-    lang1[`lang_${i}`] = {proficiency:['read','speak']}
-    var lang2 = {}
-    lang2[`lang_${i+1}`] = {proficiency:['read','speak','write']}
-    var langs = [lang1,lang2]
-    people.push(
-        new Person(`person_${i}`,20+i,`street_${i}`,`city_${i}`,`state_${i}`,`country_${i}`,langs)
-        )
-}
-for(let p of people){
-    printProps("",p)
-    console.log("--------------------------------------------")
+
+for (let individual of individuals) {
+    displayProps("", individual);
+    console.log("--------------------------------------------");
 }

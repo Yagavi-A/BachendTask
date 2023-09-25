@@ -6,7 +6,7 @@ function App() {
     <div>
       <div className="header">
         <div className="row1">
-          <img src="images/Profile.jpeg" alt="Profile" />
+          <img src="./images/Profile.jpeg" alt="Profile" />
         </div>
         <div className="row2">
           <h2>Yagavi A</h2>
@@ -59,34 +59,34 @@ function App() {
         <div className="row">
           <div className="col">
             <h3>Flight Ticket Booking</h3>
-            <img src="images/flight.png" alt="Project" />
+            <img src="./images/flight.png" alt="Project" />
             <p>This Project is done by using HTML, CSS, Flask, python and Firebase. </p>
           </div>
           <div className="col">
                     <h3>Library Management System</h3>
-                    <img src="images/library.png" alt="Project " />
+                    <img src="./images/library.png" alt="Project " />
                     <p>This Project is done by using MERN Stack.</p>
                 </div>
                 <div className="col">
                     <h3>OTP Veification</h3>
-                    <img src="images/otp.png" alt="Project"/>
+                    <img src="./images/otp.png" alt="Project"/>
                     <p>This Project is done by HTML, CSS, Javascript and Firebase.</p>
                 </div>
             </div>
             <div className="row">
                 <div className="col">
                     <h3>Movie Ticket Booking</h3>
-                    <img src="images/movie.png" alt="Project" />
+                    <img src="./images/movie.png" alt="Project" />
                     <p>This Project is done by using MERN Stack.</p>
                 </div>
                 <div className="col">
                     <h3>Sales Prediction</h3>
-                    <img src="images/sales.png" alt="Project" />
+                    <img src="./images/sales.png" alt="Project" />
                     <p>This Project is done by using Angular, Flask, Python and Machine Learning.</p>
                 </div>
                 <div className="col">
                     <h3>Car Rental Application</h3>
-                    <img src="images/car.png" alt="Project" />
+                    <img src="./images/car.png" alt="Project" />
                     <p>This Project is done by Using MERN Stack.</p>
                 </div>
         </div>

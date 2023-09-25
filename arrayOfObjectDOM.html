@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Data in DOM</title>
+</head>
+<body>
+    <div id="result-container"></div>
+    <script>
+        function Individual(name, age, street, city, state, country) {
+    this.name = name;
+    this.age = age;
+    this.address = {
+        street: street,
+        city: city,
+        state: state,
+        country: country
+    };
+}
+
+function displayPropsInDOM(obj, container) {
+    for (const prop in obj) {
+        const propValue = obj[prop];
+        const propType = Array.isArray(propValue) ? 'Array' : typeof propValue;
+
+        const propInfo = document.createElement('div');
+        propInfo.textContent = `${prop} (${propType}): ${JSON.stringify(propValue)}`;
+        container.appendChild(propInfo);
+
+        if (propType === 'object') {
+            displayPropsInDOM(propValue, container);
+        }
+    }
+}
+
+const individuals = [];
+
+for (let i = 1; i <= 5; i++) {
+    individuals.push(new Individual(`person_${i}`, 20 + i, `street_${i}`, `city_${i}`, `state_${i}`, `country_${i}`));
+}
+
+const resultContainer = document.getElementById('result-container');
+console.log('Array of Individuals:');
+individuals.forEach((individual, index) => {
+    const individualInfo = document.createElement('div');
+    individualInfo.textContent = `Individual ${index + 1}:`;
+    resultContainer.appendChild(individualInfo);
+    displayPropsInDOM(individual, resultContainer);
+    const separator = document.createElement('hr');
+    resultContainer.appendChild(separator);
+});
+
+
+    </script>
+</body>
+</html>
